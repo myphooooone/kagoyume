@@ -22,6 +22,7 @@
     <body>
         <a href ="login.jsp">ログイン</a>
         <h1>購入が完了しました</h1>
+        <h1><a href ="top.jsp">トップに戻る</a></h1>
         <%
         
         %>

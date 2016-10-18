@@ -4,6 +4,7 @@
     Author     : wappen
 --%>
 
+<%@page import="base.UserDataDTO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -12,7 +13,19 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <% 
+            HttpSession hs = request.getSession();
+            UserDataDTO uddd = (UserDataDTO)hs.getAttribute("loging");
+        %>
+        <h3>このユーザーをマジで削除しますか？</h3>
+        <form action="mydeleteresult" method="post">
+        <input type ="hidden" name="userID" value="<%=uddd.getUserID()%>">  
+        <input type="submit" value="はい">
+        
+        </form>
+        <form action="top.jsp" method="post">
+        <input type="submit" value="いいえ">
+        </form>
     </body>
 </html>
 <%

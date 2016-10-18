@@ -12,7 +12,8 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>削除しました</h1>
+        <h1><a href ="top.jsp">トップに戻る</a></h1>
     </body>
 </html>
 <%

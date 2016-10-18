@@ -4,6 +4,7 @@
     Author     : wappen
 --%>
 
+<%@page import="base.UserDataDTO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -12,7 +13,18 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <%
+            HttpSession hs=request.getSession();
+            UserDataDTO udd=(UserDataDTO)hs.getAttribute("udd");
+        %>
+        
+        <h1>以上の内容で更新しました</h1>
+        名前：<%= udd.getName() %><br>
+        パスワード:<%=udd.getPassword()%><br>
+        メールアドレス:<%=udd.getmMail()%><br>
+        住所:<%=udd.getAddress()%><br>
+        <%=udd.getNewDate()%><br><br><br>
+        <h1><a href ="top.jsp">トップに戻る</a></h1>
     </body>
 </html>
 <%

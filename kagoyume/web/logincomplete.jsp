@@ -13,6 +13,13 @@
     </head>
     <body>
         <h1>ログインしました！</h1><br><br>
-        <a href ="top.jsp">トップに戻る</a>
+        <a href ="top.jsp">トップに戻る</a><br><br>
+        
+        <form action="mydelete" method="post">
+            <input type="submit" value="会員様削除ページ">
+        </form>
+        <form action="myupdate" method="post">
+            <input type="submit" value="会員様情報変更ページ">
+        </form>
     </body>
 </html>

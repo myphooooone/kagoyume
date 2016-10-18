@@ -64,7 +64,52 @@ public class UserDataDAO {
                 con.close();
             }
         }
+        
+        
   }
-  
-      }
+  public void Deleteresult(UserDataDTO udd) throws SQLException{
+          
+            Connection con = null;
+            PreparedStatement st = null;
+            
+            try{
+            con = DBManager.getConnection();
+            st=con.prepareStatement("delete from user_t where userID = ?");
+            st.setInt(1,udd.getUserID());
+            st.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            throw new SQLException(e);
+        } finally {
+           if (con != null) {
+              } con.close();
+            }
+            }
+
+//アップデート機能の作成
+public void Update(UserDataDTO udd) throws SQLException{
+           
+           Connection con = null;
+           PreparedStatement st = null;
+
+           try{
+               con = DBManager.getConnection();
+               st = con.prepareStatement("update user_t set name=?,password=?,mail=?,address=?,newData=?");
+               st.setString(1, udd.getName());
+               st.setString(2, udd.getPassword());
+               st.setString(3, udd.getmMail());
+               st.setString(4, udd.getAddress());
+               st.setTimestamp(5, new Timestamp(System.currentTimeMillis()));
+               st.executeUpdate();
+               } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            throw new SQLException(e);
+        } finally {
+           if (con != null) {
+              } con.close();
+            }
+            }
+           }
+
+      
  

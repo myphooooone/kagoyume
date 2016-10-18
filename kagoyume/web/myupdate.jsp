@@ -4,6 +4,7 @@
     Author     : wappen
 --%>
 
+<%@page import="base.UserData"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -12,7 +13,18 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+          <%
+          HttpSession hs = request.getSession();
+          UserData ud = (UserData)hs.getAttribute("ud");
+        %>
+        
+         ユーザー名:<input type="text" name="name" value="<%=ud.getName()%>"><br><br>
+        パスワード:<input type="password"  name="password" value="<%=ud.getPassword()%>"><br><br>
+        メールアドレス:<input type="text" name="mail" value="<%=ud.getMail()%>"><br><br>
+        住所:<input type="text" name="address" value="<%=ud.getAddress()%>"><br><br><br>
+        <form action="myupdateresult" method="post">
+            <input type="submit" value="送信">
+        </form>
     </body>
 </html>
 <%
